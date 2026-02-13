@@ -15,7 +15,7 @@
 }
 
 body {
-  font-family: "Quicksand", sans-serif;
+  font-family: 'Quicksand', sans-serif;
   background: var(--bg-gradient);
   height: 100vh;
   width: 100vw;
@@ -165,59 +165,59 @@ body {
 }
 
 /* MOOD: Blush / Cute (Step 2, 5) */
-.cat[data-mood="cute"] .eye-normal {
+.cat[data-mood='cute'] .eye-normal {
   opacity: 0;
 }
-.cat[data-mood="cute"] .eye-happy {
+.cat[data-mood='cute'] .eye-happy {
   opacity: 1;
 }
-.cat[data-mood="cute"] .cheeks {
+.cat[data-mood='cute'] .cheeks {
   fill: #ff5d8f;
   opacity: 0.8;
   transform: scale(1.2);
 }
 
 /* MOOD: Surprised / Shocked (Step 4) */
-.cat[data-mood="shocked"] .eye-normal {
+.cat[data-mood='shocked'] .eye-normal {
   opacity: 0;
 }
-.cat[data-mood="shocked"] .eye-wide {
+.cat[data-mood='shocked'] .eye-wide {
   opacity: 1;
 }
-.cat[data-mood="shocked"] .mouth-normal {
+.cat[data-mood='shocked'] .mouth-normal {
   opacity: 0;
 }
-.cat[data-mood="shocked"] .mouth-open {
+.cat[data-mood='shocked'] .mouth-open {
   opacity: 1;
 }
-.cat[data-mood="shocked"] .cat-svg {
+.cat[data-mood='shocked'] .cat-svg {
   animation: bounce 0.4s infinite alternate;
 }
 
 /* MOOD: Love (Step 3, 8, Yes) */
-.cat[data-mood="love"] .heart-bubble {
+.cat[data-mood='love'] .heart-bubble {
   opacity: 1;
   transform: scale(1) rotate(15deg);
 }
-.cat[data-mood="love"] .eye-normal {
+.cat[data-mood='love'] .eye-normal {
   opacity: 0;
 }
-.cat[data-mood="love"] .eye-happy {
+.cat[data-mood='love'] .eye-happy {
   opacity: 1;
 }
-.cat[data-mood="love"] .cheeks {
+.cat[data-mood='love'] .cheeks {
   fill: #ff4d6d;
   opacity: 1;
 }
 
 /* MOOD: Sad (No Button) */
-.cat[data-mood="sad"] .tear {
+.cat[data-mood='sad'] .tear {
   opacity: 1;
   animation: cry 1.5s infinite;
 }
 
 /* MOOD: Excited (Success) */
-.cat[data-mood="excited"] .cat-svg {
+.cat[data-mood='excited'] .cat-svg {
   animation: dance 0.5s infinite alternate;
 }
 @keyframes dance {
@@ -269,7 +269,7 @@ body {
 
 /* Typography */
 h1 {
-  font-family: "Great Vibes", cursive;
+  font-family: 'Great Vibes', cursive;
   color: var(--primary);
   font-size: 3rem;
   line-height: 1.2;
@@ -387,4 +387,85 @@ p {
   to {
     transform: translateY(110vh) rotate(720deg);
   }
+}
+
+/* Love Letter Modal */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(6px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10000;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+}
+.modal-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.modal-card {
+  background: linear-gradient(160deg, #fff0f3, #ffe5ec, #fff);
+  border-radius: 24px;
+  padding: 2.5rem 2rem 2rem;
+  width: 90%;
+  max-width: 440px;
+  max-height: 80vh;
+  overflow-y: auto;
+  position: relative;
+  box-shadow: 0 25px 60px rgba(255, 77, 109, 0.25);
+  border: 2px solid rgba(255, 179, 193, 0.5);
+  transform: translateY(30px) scale(0.95);
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.modal-overlay.active .modal-card {
+  transform: translateY(0) scale(1);
+}
+
+.modal-close {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  color: var(--primary);
+  cursor: pointer;
+  line-height: 1;
+  transition: transform 0.2s;
+}
+.modal-close:hover {
+  transform: scale(1.2) rotate(90deg);
+}
+
+.modal-title {
+  font-family: 'Great Vibes', cursive;
+  color: var(--primary);
+  font-size: 2.4rem;
+  margin-bottom: 1.2rem;
+  text-align: center;
+  text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.6);
+}
+
+.modal-body p {
+  color: var(--text-color);
+  font-size: 1.05rem;
+  line-height: 1.7;
+  margin-bottom: 1rem;
+  min-height: auto;
+  text-align: left;
+  display: block;
+  font-weight: 500;
+}
+
+.modal-signature {
+  text-align: center !important;
+  font-family: 'Great Vibes', cursive;
+  font-size: 1.4rem !important;
+  color: var(--primary) !important;
+  margin-top: 1.5rem;
 }
